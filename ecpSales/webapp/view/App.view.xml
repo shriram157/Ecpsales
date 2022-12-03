@@ -13,11 +13,11 @@
 				</Bar>
 			</customHeader>
 			<App id="idAppControl"/>
-			<footer>
+			<!--<footer>
 				<OverflowToolbar>
 					<ToolbarSpacer/>
 				</OverflowToolbar>
-			</footer>
+			</footer>-->
 		</Page>
 	</App>
 </mvc:View>

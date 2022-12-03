@@ -71,7 +71,6 @@
 											<table:Column >
 												<Label text="{i18n>ExpiryKm}" textAlign="Center" width="100%"/>
 												<table:template>
-													
 													<Text text="{LocalDataModel>AgreementthruKMreading}" textAlign="Center" width="100%"/>
 												</table:template>
 											</table:Column>
@@ -81,13 +80,13 @@
 													<Text text="{path:'LocalDataModel>LienHolder'}" textAlign="Center" width="100%"/>
 												</table:template>
 											</table:Column>
-											<table:Column >
-												<Label text="{i18n>StatusReason}" textAlign="Center" width="100%"/>
-												<table:template>
-													<Text text="{path:'LocalDataModel>Agreementreasoncode', formatter : 'zecp.utils.formatter.fnFormatStatusReason'}" textAlign="Center"
-														width="100%"/>
-												</table:template>
-											</table:Column>
+											<!--<table:Column >-->
+											<!--	<Label text="{i18n>StatusReason}" textAlign="Center" width="100%"/>-->
+											<!--	<table:template>-->
+											<!--		<Text text="{path:'LocalDataModel>Agreementreasoncode', formatter : 'zecp.utils.formatter.fnFormatStatusReason'}" textAlign="Center"-->
+											<!--			width="100%"/>-->
+											<!--	</table:template>-->
+											<!--</table:Column>-->
 										</table:columns>
 									</table:Table>
 								</VBox>

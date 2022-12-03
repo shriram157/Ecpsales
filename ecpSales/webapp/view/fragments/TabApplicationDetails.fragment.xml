@@ -240,11 +240,12 @@
 				</f:SimpleForm>
 			</html:div>
 		</l:Grid>
+		<!-- changes done for DMND0003799-->
 		<HBox alignContent="Center" justifyContent="Center" class="sapUiLargeMarginBottom">
 			<Button class="sapUiTinyMarginBeginEnd" press="onDelete" text="{i18n>Delete}" type="Reject"/>
-			<Button class="sapUiTinyMarginBeginEnd" press="onBackList" visible="{oSetProperty>/backToList}" text="{i18n>BacktoList}" type="Back"/>
-			<Button class="sapUiTinyMarginBeginEnd" text="{i18n>BacktoList}" visible="{oSetProperty>/backSecondary}" type="Back" press="OnBackSecondary"/>
-			<Button class="sapUiTinyMarginBeginEnd" text="{i18n>Back}" visible="{oSetProperty>/backBtnP}" type="Back" press="OnBack"/>
+			<Button class="sapUiTinyMarginBeginEnd" press="onBackList" visible="{oSetProperty>/backToList}" text="{i18n>BacktoList}"/>
+			<Button class="sapUiTinyMarginBeginEnd" text="{i18n>BacktoList}" visible="{oSetProperty>/backSecondary}" press="OnBackSecondary"/>
+			<Button class="sapUiTinyMarginBeginEnd" text="{i18n>Back}" visible="{oSetProperty>/backBtnP}" press="OnBack"/>
 			<Button class="sapUiTinyMarginBeginEnd" text="{i18n>Save}" visible="{oSetProperty>/oPrimeryState}" id="idSaveBtn" press="onSaveApp"/>
 			<Button class="sapUiTinyMarginBeginEnd" visible="{oSetProperty>/oPrimeryState01}" text="{i18n>Save}" id="idUpdateSavedBtn"
 				press="onUpdateSavedApp"/>

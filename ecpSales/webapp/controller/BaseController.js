@@ -144,9 +144,6 @@ sap.ui.define([
 			var oBusinessModel = this.getModel("ApiBusinessModel");
 			this.getView().setModel(oBusinessModel, "OBusinessModel");
 			this.getView().setModel(this.getOwnerComponent().getModel("EcpSalesModel"));
-			// var oEventBus = sap.ui.getCore().getEventBus();
-			// oEventBus.subscribe("newECPApp", "Binded", this.onSelectiDealer, this);
-
 			//======================================================================================================================//			
 			//  on init method,  get the token attributes and authentication details to the UI from node layer.  - begin
 			//======================================================================================================================//		
@@ -244,7 +241,8 @@ sap.ui.define([
 
 					});
 					that.getModel("LocalDataModel").setProperty("/BpDealerModel", BpDealer);
-
+					// ##change done for DMND0003001 by Minakshi
+					that.getModel("LocalDataModel").setProperty("/LoggedInUser", oData.userProfile.id);
 				}.bind(this),
 				error: function (response) {
 					sap.ui.core.BusyIndicator.hide();
@@ -272,20 +270,26 @@ sap.ui.define([
 			} else {
 				this.getRouter().navTo("ApplicationList", {}, true);
 			}
+		},
+		// Added for incident INC0184963 start
+		fnBusinessPartnerData: function (patnerNum, callback) {
+			var oBusinessModel = this.getModel("ApiBusinessModel");
+			oBusinessModel.read("/A_BusinessPartnerAddress", {
+				urlParameters: {
+					"$filter": "BusinessPartner eq '" + patnerNum + "' ",
+					"$expand": "to_PhoneNumber,to_FaxNumber,to_EmailAddress,to_MobilePhoneNumber"
+
+				},
+				success: $.proxy(function (budata) {
+					callback(budata);
+				}, this),
+				error: function (err) {
+					console.log(err);
+				}
+			});
+
 		}
-
-		//     	getListRow: function(proId, control) {
-		// 	//var oStandardListItem =control.getParent();
-
-		// 	if (proId % 2 === 0) {
-
-		// 		this.addStyleClass("evenClass");
-		// 	}
-		// 	else{
-		// 		this.addStyleClass("oddClass");
-		// 	}
-		// 	return proId;
-		// }
+// Added for incident INC0184963 end
 
 	});
 });

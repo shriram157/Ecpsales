@@ -9,7 +9,7 @@
 				<core:ListItem key="{LocalDataModel>KMS}/{LocalDataModel>MONTHS}/{LocalDataModel>MAX_MILEAGE}/{LocalDataModel>MAX_MONTH}" text="{LocalDataModel>MGANR}" additionalText="{LocalDataModel>GAKTX}"/>
 			</ComboBox>
 			<Button text="{i18n>Next}" type="Emphasized" press="OnNextStep4"/>
-			<Button text="{i18n>Back}" type="Back" press="OnBack"/>
+			<Button text="{i18n>Back}" press="OnBack"/>
 		</f:content>
 	</f:SimpleForm>
 </core:FragmentDefinition>

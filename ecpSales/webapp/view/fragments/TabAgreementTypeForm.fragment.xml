@@ -24,7 +24,7 @@
 			</ComboBox>
 			<core:Title text=""/>
 			<Button text="{i18n>Next}" type="Emphasized" press="OnNextStep3" enabled="{oSetProperty>/ostep3}"/>
-			<Button text="{i18n>Back}" type="Back" press="OnBack"/>
+			<Button text="{i18n>Back}" press="OnBack"/>
 		</f:content>
 	</f:SimpleForm>
 	<VBox id="idExtAgrList" visible="{oSetProperty>/oAgreementTable}">

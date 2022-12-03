@@ -118,3 +118,13 @@ html.sap-desktop .sapContrastPlus .sapMBtn:focus>.sapMFocusable {
 	padding-left:3rem;
 	text-align: left!important;
 }
+
+
+div[id*="ObjectPageLayout-spacer"] {
+  /*height: 60px!important;*/
+}
+
+.sapMSltPicker-CTX .sapMSelectList .sapMSelectListRow .sapMSelectListFirstCell {width : 26%!important;}
+.sapMSltPicker-CTX .sapMSelectList .sapMSelectListRow .sapMSelectListLastCell {width :74%!important;}
+
+ 
