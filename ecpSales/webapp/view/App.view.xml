@@ -6,7 +6,8 @@
 				<Bar class="sapUiSmallPaddingBeginEnd clCustomHeaderBg">
 					<contentLeft>
 						<Image id="idLexusLogo" src="images/Lexus_ENV1.png" width="100px"/>
-						<Image id="idToyotaLogo" src="images/toyota_logo.png" width="100px"/>
+					<!--	<Image id="idToyotaLogo" src="images/toyota_logo.png" width="100px"/>-->
+					<Image id="idToyotaLogo" src="images/Toyota.New.Logo.png" width="50px" height="50px"/> <!-- changes by Swetha for INC0226562 on 6/3/2023 reduced the width of logo-->
 						<Text text="|" class="sapUiTinyMarginBeginEnd"/>
 						<Text class="clCustomFont" text="{i18n>appTitle}"/>
 					</contentLeft>
