@@ -399,14 +399,14 @@ sap.ui.define([
 				if (oECPData.ZecpAgrType === oBundle.getText("NEWVEHICLEAGREEMENT") || oECPData.ZecpAgrType === "NEW VEHICLE AGREEMENT") {
 					if (DifferTime <= oDay) {
 						this.getView().getModel("EcpFieldData").setProperty("/ZecpBenefitsFlg", "Yes");
-						this.getView().getModel("EcpFieldData").setProperty("/BENEFITSFLAG", oBundle.getText("Yes"));
+						this.getView().getModel("EcpFieldData").setProperty("/BENEFITSFLAG", oBundle.getText("Yes"));//changes for INC0224832 by swetha on 26-Apr-2023. Replaced /ZbenefitFlag1 with /BENEFITSFLAG
 					} else if (DifferTime > oDay) {
 						this.getView().getModel("EcpFieldData").setProperty("/ZecpBenefitsFlg", "No");
-						this.getView().getModel("EcpFieldData").setProperty("/BENEFITSFLAG", oBundle.getText("No"));
+						this.getView().getModel("EcpFieldData").setProperty("/BENEFITSFLAG", oBundle.getText("No"));//changes for INC0224832 by swetha on 26-Apr-2023. Replaced /ZbenefitFlag1 with /BENEFITSFLAG
 					}
 				} else {
 					this.getView().getModel("EcpFieldData").setProperty("/ZecpBenefitsFlg", "No");
-					this.getView().getModel("EcpFieldData").setProperty("/BENEFITSFLAG", oBundle.getText("No"));
+					this.getView().getModel("EcpFieldData").setProperty("/BENEFITSFLAG", oBundle.getText("No"));//changes for INC0224832 by swetha on 26-Apr-2023. Replaced /ZbenefitFlag1 with /BENEFITSFLAG
 				}
 
 			}
@@ -1110,14 +1110,14 @@ sap.ui.define([
 							if (this.oECPData.ZecpAgrType === "NEW VEHICLE AGREEMENT" || this.oECPData.ZecpAgrType == "ENTENTE POUR VÉHICULE NEUF") {
 								if (this._fnDifSaleDRegD().diffSaleRegDate <= oDay) {
 									this.getView().getModel("EcpFieldData").setProperty("/ZecpBenefitsFlg", "Yes");
-									this.getView().getModel("EcpFieldData").setProperty("/BENEFITSFLAG", this.oBundle.getText("Yes"));
+									this.getView().getModel("EcpFieldData").setProperty("/BENEFITSFLAG", this.oBundle.getText("Yes"));//changes for INC0224832 by swetha on 26-Apr-2023. Replaced /ZbenefitFlag1 with /BENEFITSFLAG
 								} else if (this._fnDifSaleDRegD().diffSaleRegDate > oDay) {
 									this.getView().getModel("EcpFieldData").setProperty("/ZecpBenefitsFlg", "No");
-									this.getView().getModel("EcpFieldData").setProperty("/BENEFITSFLAG", this.oBundle.getText("No"));
+									this.getView().getModel("EcpFieldData").setProperty("/BENEFITSFLAG", this.oBundle.getText("No"));//changes for INC0224832 by swetha on 26-Apr-2023. Replaced /ZbenefitFlag1 with /BENEFITSFLAG
 								}
 							} else {
 								this.getView().getModel("EcpFieldData").setProperty("/ZecpBenefitsFlg", "No");
-								this.getView().getModel("EcpFieldData").setProperty("/BENEFITSFLAG", this.oBundle.getText("No"));
+								this.getView().getModel("EcpFieldData").setProperty("/BENEFITSFLAG", this.oBundle.getText("No"));//changes for INC0224832 by swetha on 26-Apr-2023. Replaced /ZbenefitFlag1 with /BENEFITSFLAG
 							}
 							if (
 								(!($.isEmptyObject(oOdoVal && oAgrItem && oSaleDate)) && this._fnDifSaleDRegD().diffSaleCurrent <= 0 && this._fnDifSaleDRegD()
@@ -1796,7 +1796,8 @@ sap.ui.define([
 
 				//In Case of used vechical benefit flag will always No
 				this.getView().getModel("EcpFieldData").setProperty("/ZecpBenefitsFlg", "No");
-				this.getView().getModel("EcpFieldData").setProperty("/BENEFITSFLAG", this.oBundle.getText("No"));
+				this.getView().getModel("EcpFieldData").setProperty("/BENEFITSFLAG", this.oBundle.getText("No"));//changes for INC0224832 by swetha on 26-Apr-2023. Replaced /ZbenefitFlag1 with /BENEFITSFLAG
+				
 			} else {
 				this.getView().getModel("oSetProperty").setProperty("/oSurcharge", false);
 			}
@@ -2087,7 +2088,7 @@ sap.ui.define([
 							oEcpFieldDataModel.setProperty("/ZecpListpurprice", data.results[0].ZECP_LISTPURPRICE);
 							//DMND0003027 demand changes done.
 							if(data.results[0].BENEFITSFLAG === "X"){
-							oEcpFieldDataModel.setProperty("/BENEFITSFLAG", this.getView().getModel("i18n").getResourceBundle().getText("Yes"));
+							oEcpFieldDataModel.setProperty("/BENEFITSFLAG", this.getView().getModel("i18n").getResourceBundle().getText("Yes"));        //changes for INC0224832 by swetha on 26-Apr-2023. Replaced /ZbenefitFlag1 with /BENEFITSFLAG
 							this.getView().getModel("EcpFieldData").setProperty("/ZecpBenefitsFlg", "Yes");
 							// this.oECPData.ZecpListpurprice = data.results[0].ZECP_LISTPURPRICE;
 							}

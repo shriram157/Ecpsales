@@ -188,7 +188,7 @@ sap.ui.define([], function () {
 				ZamtFincd: " ",
 				ZretailPrice: "",
 				ZecpRoadhazard1: "",
-				BENEFITSFLAG: "", //Added new entity for translation
+				BENEFITSFLAG: "", //Added new entity for translation             //changes for INC0224832 by swetha on 26-Apr-2023. Replaced /ZbenefitFlag1 with /BENEFITSFLAG
 				ZecpPlanpurchprice: ""
 
 			});
