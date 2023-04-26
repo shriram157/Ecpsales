@@ -208,7 +208,7 @@
 						<Text text="{EcpFieldData>/ZecpRoadhazard1}"/>
 						<!--changed the entity name from ZecpRoadhazard to ZecpRoadhazard1-->
 						<Label text="{i18n>BenefitsFlag}"/>
-						<Text text="{EcpFieldData>/ZbenefitFlag1}"/>
+						<Text text="{EcpFieldData>/BENEFITSFLAG}"/>
 						<!--changed the entity name from ZbenefitFlag to ZecpRoadhazard1-->
 					</f:content>
 				</f:SimpleForm>

@@ -399,14 +399,14 @@ sap.ui.define([
 				if (oECPData.ZecpAgrType === oBundle.getText("NEWVEHICLEAGREEMENT") || oECPData.ZecpAgrType === "NEW VEHICLE AGREEMENT") {
 					if (DifferTime <= oDay) {
 						this.getView().getModel("EcpFieldData").setProperty("/ZecpBenefitsFlg", "Yes");
-						this.getView().getModel("EcpFieldData").setProperty("/ZbenefitFlag1", oBundle.getText("Yes"));
+						this.getView().getModel("EcpFieldData").setProperty("/BENEFITSFLAG", oBundle.getText("Yes"));
 					} else if (DifferTime > oDay) {
 						this.getView().getModel("EcpFieldData").setProperty("/ZecpBenefitsFlg", "No");
-						this.getView().getModel("EcpFieldData").setProperty("/ZbenefitFlag1", oBundle.getText("No"));
+						this.getView().getModel("EcpFieldData").setProperty("/BENEFITSFLAG", oBundle.getText("No"));
 					}
 				} else {
 					this.getView().getModel("EcpFieldData").setProperty("/ZecpBenefitsFlg", "No");
-					this.getView().getModel("EcpFieldData").setProperty("/ZbenefitFlag1", oBundle.getText("No"));
+					this.getView().getModel("EcpFieldData").setProperty("/BENEFITSFLAG", oBundle.getText("No"));
 				}
 
 			}
@@ -1110,14 +1110,14 @@ sap.ui.define([
 							if (this.oECPData.ZecpAgrType === "NEW VEHICLE AGREEMENT" || this.oECPData.ZecpAgrType == "ENTENTE POUR VÉHICULE NEUF") {
 								if (this._fnDifSaleDRegD().diffSaleRegDate <= oDay) {
 									this.getView().getModel("EcpFieldData").setProperty("/ZecpBenefitsFlg", "Yes");
-									this.getView().getModel("EcpFieldData").setProperty("/ZbenefitFlag1", this.oBundle.getText("Yes"));
+									this.getView().getModel("EcpFieldData").setProperty("/BENEFITSFLAG", this.oBundle.getText("Yes"));
 								} else if (this._fnDifSaleDRegD().diffSaleRegDate > oDay) {
 									this.getView().getModel("EcpFieldData").setProperty("/ZecpBenefitsFlg", "No");
-									this.getView().getModel("EcpFieldData").setProperty("/ZbenefitFlag1", this.oBundle.getText("No"));
+									this.getView().getModel("EcpFieldData").setProperty("/BENEFITSFLAG", this.oBundle.getText("No"));
 								}
 							} else {
 								this.getView().getModel("EcpFieldData").setProperty("/ZecpBenefitsFlg", "No");
-								this.getView().getModel("EcpFieldData").setProperty("/ZbenefitFlag1", this.oBundle.getText("No"));
+								this.getView().getModel("EcpFieldData").setProperty("/BENEFITSFLAG", this.oBundle.getText("No"));
 							}
 							if (
 								(!($.isEmptyObject(oOdoVal && oAgrItem && oSaleDate)) && this._fnDifSaleDRegD().diffSaleCurrent <= 0 && this._fnDifSaleDRegD()
@@ -1796,7 +1796,7 @@ sap.ui.define([
 
 				//In Case of used vechical benefit flag will always No
 				this.getView().getModel("EcpFieldData").setProperty("/ZecpBenefitsFlg", "No");
-				this.getView().getModel("EcpFieldData").setProperty("/ZbenefitFlag1", this.oBundle.getText("No"));
+				this.getView().getModel("EcpFieldData").setProperty("/BENEFITSFLAG", this.oBundle.getText("No"));
 			} else {
 				this.getView().getModel("oSetProperty").setProperty("/oSurcharge", false);
 			}
@@ -2087,7 +2087,7 @@ sap.ui.define([
 							oEcpFieldDataModel.setProperty("/ZecpListpurprice", data.results[0].ZECP_LISTPURPRICE);
 							//DMND0003027 demand changes done.
 							if(data.results[0].BENEFITSFLAG === "X"){
-							oEcpFieldDataModel.setProperty("/ZbenefitFlag1", this.getView().getModel("i18n").getResourceBundle().getText("Yes"));
+							oEcpFieldDataModel.setProperty("/BENEFITSFLAG", this.getView().getModel("i18n").getResourceBundle().getText("Yes"));
 							this.getView().getModel("EcpFieldData").setProperty("/ZecpBenefitsFlg", "Yes");
 							// this.oECPData.ZecpListpurprice = data.results[0].ZECP_LISTPURPRICE;
 							}
