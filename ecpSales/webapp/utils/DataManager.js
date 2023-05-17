@@ -188,7 +188,7 @@ sap.ui.define([], function () {
 				ZamtFincd: " ",
 				ZretailPrice: "",
 				ZecpRoadhazard1: "",
-				ZbenefitFlag1: "", //Added new entity for translation
+				BENEFITSFLAG: "", //Added new entity for translation
 				ZecpPlanpurchprice: ""
 
 			});
