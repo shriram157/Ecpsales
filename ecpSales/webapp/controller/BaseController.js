@@ -7,7 +7,7 @@ sap.ui.define([
 
 	return Controller.extend("zecp.controller.BaseController", {
 		/**
-		 *  Convenience method for accessing the router in every controller of the application.
+		 * Convenience method for accessing the router in every controller of the application.
 		 * @public
 		 * @returns {sap.ui.core.routing.Router} the router for this component
 		 */
