@@ -57,9 +57,11 @@
 												<Text text="{path:'LocalDataModel>/VechOwnrSectonAddress_Name', formatter:'zecp.utils.formatter.convUpperCase'}"/>
 												<!--<Text text="{path: 'LocalDataModel>/VechOwnrSectonAddress/Name', formatter:'zecp.utils.formatter.bPName'}"/>-->
 												<Label text="{i18n>Address}"/>
-												<Text id="a1" text="{path:'LocalDataModel>/VechOwnrSectonAddress/StreetName', formatter:'zecp.utils.formatter.convUpperCase'}"/>
+												<Text text="{path:'LocalDataModel>/VechOwnrSectonAddress/StreetName', formatter:'zecp.utils.formatter.convUpperCase'}"/>
+											<!--	<Text id="a1" text="{path:'LocalDataModel>/VechOwnrSectonAddress/StreetName', formatter:'zecp.utils.formatter.convUpperCase'}"/> -->
 												<Label  text="{i18n>City}"/>
-												<Text  id="a2" text="{path:'LocalDataModel>/VechOwnrSectonAddress/CityName', formatter:'zecp.utils.formatter.convUpperCase'}"/>
+												<Text text="{path:'LocalDataModel>/VechOwnrSectonAddress/CityName', formatter:'zecp.utils.formatter.convUpperCase'}"/>
+											<!--		<Text  id="a2" text="{path:'LocalDataModel>/VechOwnrSectonAddress/CityName', formatter:'zecp.utils.formatter.convUpperCase'}"/>-->
 												<Label text="{i18n>Province}"/>
 												<Text text="{path:'LocalDataModel>/VechOwnrSectonAddress/Region', formatter:'zecp.utils.formatter.convUpperCase'}"/>
 												<Label text="{i18n>PostalCode}"/>
@@ -241,8 +243,10 @@
 							<HBox width="100%" alignContent="Center" justifyContent="Center">
 								<Button class="sapUiTinyMarginBeginEnd" press="onBacktoList" text="{i18n>BacktoAgreementList}" type="Back"/>
 								<Button class="sapUiTinyMarginBeginEnd" press="onSearchBackList" text="{i18n>NewSearch}"/>
-								<Button id="p1" class="sapUiTinyMarginBeginEnd" type="Emphasized" text="{i18n>PrintAgreement}" press="onPrintPdf"
+								<Button class="sapUiTinyMarginBeginEnd" type="Emphasized" text="{i18n>PrintAgreement}" press="onPrintPdf"
 									enabled="{LocalDataModel>/printBtnState}"/>
+							<!--	<Button id="p1" class="sapUiTinyMarginBeginEnd" type="Emphasized" text="{i18n>PrintAgreement}" press="onPrintPdf"
+									enabled="{LocalDataModel>/printBtnState}"/>-->
 							</HBox>
 						</uxap:blocks>
 					</uxap:ObjectPageSubSection>
