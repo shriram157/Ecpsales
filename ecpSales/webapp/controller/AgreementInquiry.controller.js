@@ -424,9 +424,9 @@ sap.ui.define([
 			
 			if(this.getModel("LocalDataModel").getProperty("/LoggedInUser").substring(0, 5)!=this.getModel("LocalDataModel").getProperty("/AgreementInfo/DealershipNumber"))
 			{
-				this.getView().byId("a1").setVisible(false);
-				this.getView().byId("a2").setVisible(false);
-				this.getView().byId("p1").setVisible(false);
+				this.getView().byId("a1").setValue("");
+				this.getView().byId("a2").setValue("");
+				this.getView().byId("p1").setEnable(false);
 				
 			}
 
