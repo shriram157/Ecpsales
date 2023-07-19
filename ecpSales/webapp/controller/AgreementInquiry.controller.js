@@ -418,13 +418,15 @@ sap.ui.define([
 			});
 
 			//	LANGUAGE eq 'EN' and BCC_ECP_AGRMNT_NUM eq 'G50000104NTC04000'&$expand=ZC_ECP_BENEFITSET
-		//	DMND0004148 - ECP Infostream APP remove customer data from non issuing dealer
+		//	DMND0004148 - ECP Infostream APP remove customer data from non issuing dealer  /AgreementInfo/DealershipNumbe
+			console.log("Login Dealer"+this.getModel("LocalDataModel").getProperty("/LoggedInUser").substring(0, 5));
+			console.log("Issue Dealer"+this.getModel("LocalDataModel").getProperty("/AgreementInfo/DealershipNumber"));
 			
 			if(this.getModel("LocalDataModel").getProperty("/LoggedInUser").substring(0, 5)!=this.getModel("LocalDataModel").getProperty("/AgreementInfo/DealershipNumber"))
 			{
-				this.getView().byId("a1").setVisibile(false);
-				this.getView().byId("a2").setVisibile(false);
-				this.getView().byId("p1").setVisibile(false);
+				this.getView().byId("a1").setVisible(false);
+				this.getView().byId("a2").setVisible(false);
+				this.getView().byId("p1").setVisible(false);
 				
 			}
 
