@@ -126,5 +126,13 @@ zecp.utils.formatter = {
 		}
 		return dealerCode;
 		
+	},
+	
+	maskNumber:function(telephone)
+	{
+	if(telephone){
+			return "XXXXXX"+telephone.substring(-4,4);
+		}
+		return telephone;	
 	}
 };
