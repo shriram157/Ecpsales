@@ -166,13 +166,13 @@ sap.ui.define([
 									}
 								}
 								this.getModel("LocalDataModel").setProperty("/AgrOwnrSectonAddress/PhoneNumber", validPhone);
-								 //	DMND0004148 - ECP Infostream APP remove customer data from non issuing dealer  shriram 2-Aug-2023
-								if (this.getModel("LocalDataModel").getProperty("/LoggedInUser").substring(0, 5) != this.getModel("LocalDataModel").getProperty(
-										"/AgreementInfo/DealershipNumber")) {
-									// Agreement Owner
-									this.getView().byId("idAgreeOwnerPhone").setText("");
+								//	DMND0004148 - ECP Infostream APP remove customer data from non issuing dealer  shriram 2-Aug-2023
+								// if (this.getModel("LocalDataModel").getProperty("/LoggedInUser").substring(0, 5) != this.getModel("LocalDataModel").getProperty(
+								// 		"/AgreementInfo/DealershipNumber")) {
+								// 	// Agreement Owner
+								// 	this.getView().byId("idAgreeOwnerPhone").setText("");
 
-								}
+								// }
 								// Added for incident INC0184963 end
 							}
 							if (budata.results[0].to_FaxNumber.results.length > 0) {
@@ -289,6 +289,31 @@ sap.ui.define([
 										}
 										this.getModel("LocalDataModel").setProperty("/VechOwnrSectonAddress/Mobile", validMobile);
 										// Added for incident INC0184963 end
+                                        //	DMND0004148 - ECP Infostream APP remove customer data from non issuing dealer 
+										if (this.getModel("LocalDataModel").getProperty("/LoggedInUser").substring(0, 5) != this.getModel(
+												"LocalDataModel").getProperty(
+												"/AgreementInfo/DealershipNumber").substr(-5,5)) {
+											// Agreement Owner
+											this.getView().byId("idAgreeOwnerAdd").setText("");
+											this.getView().byId("idAgreeOwnerCity").setText("");
+											this.getView().byId("idAgreeOwnerProvince").setText("");
+											this.getView().byId("idAgreeOwnerPostal").setText("");
+											this.getView().byId("idAgreeOwnerEmail").setText("");
+											this.getView().byId("idAgreeOwnerPhone").setText("");
+											this.getView().byId("idAgreeOwnerMobile").setText("");
+											//Vehicle Owner
+											this.getView().byId("idVehicleOwnerAdd").setText("");
+											this.getView().byId("idVehicleOwnerCity").setText("");
+											this.getView().byId("idVehicleOwnerProvince").setText("");
+											this.getView().byId("idVehicleOwnerPostal").setText("");
+											this.getView().byId("idVehicleOwnerEmail").setText("");
+											this.getView().byId("idVehicleOwnerPhone").setText("");
+											this.getView().byId("idVehicleOwnerMobile").setText("");
+											//Print Button disable
+											this.getModel("LocalDataModel").setProperty("/printBtnState", false);
+
+											//	this.getView().byId("p1").setEnabled(false);
+										}
 
 									}
 								}, this));
@@ -429,6 +454,33 @@ sap.ui.define([
 			console.log("Login Dealer" + this.getModel("LocalDataModel").getProperty("/LoggedInUser").substring(0, 5));
 			console.log("Issue Dealer" + this.getModel("LocalDataModel").getProperty("/AgreementInfo/DealershipNumber"));
 
+			// if (this.getModel("LocalDataModel").getProperty("/LoggedInUser").substring(0, 5) != this.getModel("LocalDataModel").getProperty(
+			// 		"/AgreementInfo/DealershipNumber")) {
+			// 	// Agreement Owner
+			// 	this.getView().byId("idAgreeOwnerAdd").setText("");
+			// 	this.getView().byId("idAgreeOwnerCity").setText("");
+			// 	this.getView().byId("idAgreeOwnerProvince").setText("");
+			// 	this.getView().byId("idAgreeOwnerPostal").setText("");
+			// 	this.getView().byId("idAgreeOwnerEmail").setText("");
+			// 	this.getView().byId("idAgreeOwnerPhone").setText("");
+			// 	this.getView().byId("idAgreeOwnerMobile").setText("");
+			// 	//Vehicle Owner
+			// 	this.getView().byId("idVehicleOwnerAdd").setText("");
+			// 	this.getView().byId("idVehicleOwnerCity").setText("");
+			// 	this.getView().byId("idVehicleOwnerProvince").setText("");
+			// 	this.getView().byId("idVehicleOwnerPostal").setText("");
+			// 	this.getView().byId("idVehicleOwnerEmail").setText("");
+			// 	this.getView().byId("idVehicleOwnerPhone").setText("");
+			// 	this.getView().byId("idVehicleOwnerMobile").setText("");
+			// 	//Print Button disable
+			// 	this.getModel("LocalDataModel").setProperty("/printBtnState", false);
+
+			// 	//	this.getView().byId("p1").setEnabled(false);
+			// }
+			// this.test1();
+		},
+		//	DMND0004148 - ECP Infostream APP remove customer data from non issuing dealer  
+		test1: function (val) {
 			if (this.getModel("LocalDataModel").getProperty("/LoggedInUser").substring(0, 5) != this.getModel("LocalDataModel").getProperty(
 					"/AgreementInfo/DealershipNumber")) {
 				// Agreement Owner
@@ -452,36 +504,9 @@ sap.ui.define([
 
 				//	this.getView().byId("p1").setEnabled(false);
 			}
-            this.test1();
-		},
-		//	DMND0004148 - ECP Infostream APP remove customer data from non issuing dealer  
-		test1: function (val) {
-				if (this.getModel("LocalDataModel").getProperty("/LoggedInUser").substring(0, 5) != this.getModel("LocalDataModel").getProperty(
-					"/AgreementInfo/DealershipNumber")) {
-				// Agreement Owner
-				this.getView().byId("idAgreeOwnerAdd").setText("");
-				this.getView().byId("idAgreeOwnerCity").setText("");
-				this.getView().byId("idAgreeOwnerProvince").setText("");
-				this.getView().byId("idAgreeOwnerPostal").setText("");
-				this.getView().byId("idAgreeOwnerEmail").setText("");
-				this.getView().byId("idAgreeOwnerPhone").setText("");
-				this.getView().byId("idAgreeOwnerMobile").setText("");
-				//Vehicle Owner
-				this.getView().byId("idVehicleOwnerAdd").setText("");
-				this.getView().byId("idVehicleOwnerCity").setText("");
-				this.getView().byId("idVehicleOwnerProvince").setText("");
-				this.getView().byId("idVehicleOwnerPostal").setText("");
-				this.getView().byId("idVehicleOwnerEmail").setText("");
-				this.getView().byId("idVehicleOwnerPhone").setText("");
-				this.getView().byId("idVehicleOwnerMobile").setText("");
-				//Print Button disable
-				this.getModel("LocalDataModel").setProperty("/printBtnState", false);
 
-				//	this.getView().byId("p1").setEnabled(false);
-			}
-			
 		},
-		
+
 		fnDateFormat: function (val) {
 			var Oval;
 			if (val) {
