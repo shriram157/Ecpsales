@@ -419,15 +419,32 @@ sap.ui.define([
 
 			//	LANGUAGE eq 'EN' and BCC_ECP_AGRMNT_NUM eq 'G50000104NTC04000'&$expand=ZC_ECP_BENEFITSET
 		//	DMND0004148 - ECP Infostream APP remove customer data from non issuing dealer  /AgreementInfo/DealershipNumbe
-			//console.log("Login Dealer"+this.getModel("LocalDataModel").getProperty("/LoggedInUser").substring(0, 5));
-			//console.log("Issue Dealer"+this.getModel("LocalDataModel").getProperty("/AgreementInfo/DealershipNumber"));
+		console.log("Login Dealer"+this.getModel("LocalDataModel").getProperty("/LoggedInUser").substring(0, 5));
+		console.log("Issue Dealer"+this.getModel("LocalDataModel").getProperty("/AgreementInfo/DealershipNumber"));
 			
-			//if(this.getModel("LocalDataModel").getProperty("/LoggedInUser").substring(0, 5)!=this.getModel("LocalDataModel").getProperty("/AgreementInfo/DealershipNumber"))
-			//{
-			//	this.getView().byId("a1").setText("");
-			//	this.getView().byId("a2").setText("");
+			if(this.getModel("LocalDataModel").getProperty("/LoggedInUser").substring(0, 5)!=this.getModel("LocalDataModel").getProperty("/AgreementInfo/DealershipNumber"))
+			{
+				// Agreement Owner
+				this.getView().byId("idAgreeOwnerAdd").setText("");
+				this.getView().byId("idAgreeOwnerCity").setText("");
+				this.getView().byId("idAgreeOwnerProvince").setText("");
+				this.getView().byId("idAgreeOwnerPostal").setText("");
+				this.getView().byId("idAgreeOwnerEmail").setText("");
+				this.getView().byId("idAgreeOwnerPhone").setText("");
+				this.getView().byId("idAgreeOwnerMobile").setText("");
+				//Vehicle Owner
+				this.getView().byId("idVehicleOwnerAdd").setText("");
+				this.getView().byId("idVehicleOwnerCity").setText("");
+				this.getView().byId("idVehicleOwnerProvince").setText("");
+				this.getView().byId("idVehicleOwnerPostal").setText("");
+				this.getView().byId("idVehicleOwnerEmail").setText("");
+				this.getView().byId("idVehicleOwnerPhone").setText("");
+				this.getView().byId("idVehicleOwnerMobile").setText("");
+				//Print Button disable
+				this.getModel("LocalDataModel").setProperty("/printBtnState", false);
+				
 			//	this.getView().byId("p1").setEnabled(false);
-			//}
+			}
 		
 
 		},
