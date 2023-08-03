@@ -192,25 +192,29 @@ sap.ui.define([
 								}
 								this.getModel("LocalDataModel").setProperty("/AgrOwnrSectonAddress/MobileNumber", validMobile);
 								// Added for incident INC0184963 end
-								 //	DMND0004148 - ECP Infostream APP remove customer data from non issuing dealer ---Shriram  3-Aug-2023   Code Start
-										if (this.getModel("LocalDataModel").getProperty("/LoggedInUser").substring(0, 5) != this.getModel(
-												"LocalDataModel").getProperty(
-												"/AgreementInfo/DealershipNumber").substr(-5,5)) {
-											// Agreement Owner
-											this.getView().byId("idAgreeOwnerAdd").setText("");
-											this.getView().byId("idAgreeOwnerCity").setText("");
-											this.getView().byId("idAgreeOwnerProvince").setText("");
-											this.getView().byId("idAgreeOwnerPostal").setText("");
-											this.getView().byId("idAgreeOwnerEmail").setText("");
-											this.getView().byId("idAgreeOwnerPhone").setText("xxxxxx"+this.getView().byId("idVehicleOwnerPhone").getText().substring(-4,4));
-											this.getView().byId("idAgreeOwnerMobile").setText("xxxxxx"+this.getView().byId("idVehicleOwnerMobile").getText().substring(-4,4));
-										
-											//PrintAgreement Button disable
-											this.getModel("LocalDataModel").setProperty("/printBtnState", false);
+								//	DMND0004148 - ECP Infostream APP remove customer data from non issuing dealer ---Shriram  3-Aug-2023   Code Start
+								if (this.getModel("LocalDataModel").getProperty("/UserType") != "TCI_Admin") {
+									if (this.getModel("LocalDataModel").getProperty("/LoggedInUser").substring(0, 5) != this.getModel(
+											"LocalDataModel").getProperty(
+											"/AgreementInfo/DealershipNumber").substr(-5, 5)) {
+										// Agreement Owner
+										this.getView().byId("idAgreeOwnerAdd").setText("");
+										this.getView().byId("idAgreeOwnerCity").setText("");
+										this.getView().byId("idAgreeOwnerProvince").setText("");
+									//	this.getView().byId("idAgreeOwnerPostal").setText("");
+										this.getView().byId("idAgreeOwnerEmail").setText("");
+										this.getView().byId("idAgreeOwnerPhone").setText("xxxxxx" + this.getModel("LocalDataModel").getProperty(
+											"/AgrOwnrSectonAddress/PhoneNumber").substring(-4, 4));
+										this.getView().byId("idAgreeOwnerMobile").setText("xxxxxx" + this.getModel("LocalDataModel").getProperty(
+											"/AgrOwnrSectonAddress/MobileNumber").substring(-4, 4));
 
-											//	this.getView().byId("p1").setEnabled(false);
-										}//	DMND0004148 - ECP Infostream APP remove customer data from non issuing dealer ---Shriram  3-Aug-2023   CodeEnd
+										//PrintAgreement Button disable
+										this.getModel("LocalDataModel").setProperty("/printBtnState", false);
 
+										//	this.getView().byId("p1").setEnabled(false);
+									} //	DMND0004148 - ECP Infostream APP remove customer data from non issuing dealer ---Shriram  3-Aug-2023   CodeEnd
+
+								}
 							}
 						}, this));
 
@@ -307,24 +311,29 @@ sap.ui.define([
 										}
 										this.getModel("LocalDataModel").setProperty("/VechOwnrSectonAddress/Mobile", validMobile);
 										// Added for incident INC0184963 end
-                                        //	DMND0004148 - ECP Infostream APP remove customer data from non issuing dealer shriram 2-Aug-2023  code start
-										if (this.getModel("LocalDataModel").getProperty("/LoggedInUser").substring(0, 5) != this.getModel(
-												"LocalDataModel").getProperty(
-												"/AgreementInfo/DealershipNumber").substr(-5,5)) {
-											//Vehicle Owner
-											this.getView().byId("idVehicleOwnerAdd").setText("");
-											this.getView().byId("idVehicleOwnerCity").setText("");
-											this.getView().byId("idVehicleOwnerProvince").setText("");
-											this.getView().byId("idVehicleOwnerPostal").setText("");
-											this.getView().byId("idVehicleOwnerEmail").setText("");
-											this.getView().byId("idVehicleOwnerPhone").setText("xxxxxx"+this.getView().byId("idVehicleOwnerPhone").getText().substring(-4,4));
-											this.getView().byId("idVehicleOwnerMobile").setText("xxxxxx"+this.getView().byId("idVehicleOwnerMobile").getText().substring(-4,4));
-											//Print Button disable
-											this.getModel("LocalDataModel").setProperty("/printBtnState", false);
+										//	DMND0004148 - ECP Infostream APP remove customer data from non issuing dealer shriram 2-Aug-2023  code start
+										if (this.getModel("LocalDataModel").getProperty("/UserType") != "TCI_Admin") {
 
-											//	this.getView().byId("p1").setEnabled(false);
+											if (this.getModel("LocalDataModel").getProperty("/LoggedInUser").substring(0, 5) != this.getModel(
+													"LocalDataModel").getProperty(
+													"/AgreementInfo/DealershipNumber").substr(-5, 5)) {
+												//Vehicle Owner
+												this.getView().byId("idVehicleOwnerAdd").setText("");
+												this.getView().byId("idVehicleOwnerCity").setText("");
+												this.getView().byId("idVehicleOwnerProvince").setText("");
+											//	this.getView().byId("idVehicleOwnerPostal").setText("");
+												this.getView().byId("idVehicleOwnerEmail").setText("");
+												this.getView().byId("idVehicleOwnerPhone").setText("xxxxxx" + this.getModel("LocalDataModel").getProperty(
+													"/VechOwnrSectonAddress/PhoneNumber").substring(-4, 4));
+												this.getView().byId("idVehicleOwnerMobile").setText("xxxxxx" + this.getModel("LocalDataModel").getProperty(
+													"/VechOwnrSectonAddress/Mobile").substring(-4, 4));
+
+												//Print Button disable
+												this.getModel("LocalDataModel").setProperty("/printBtnState", false);
+
+												//	this.getView().byId("p1").setEnabled(false);
+											}
 										} //	DMND0004148 - ECP Infostream APP remove customer data from non issuing dealer shriram 2-Aug-2023  code End
-
 									}
 								}, this));
 
@@ -460,7 +469,7 @@ sap.ui.define([
 			});
 
 			//	LANGUAGE eq 'EN' and BCC_ECP_AGRMNT_NUM eq 'G50000104NTC04000'&$expand=ZC_ECP_BENEFITSET
-			
+
 		},
 		fnDateFormat: function (val) {
 			var Oval;

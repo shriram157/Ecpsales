@@ -127,12 +127,12 @@ zecp.utils.formatter = {
 		return dealerCode;
 		
 	},
-	
+	//	DMND0004148 - ECP Infostream APP remove customer data from non issuing dealer shriram 2-Aug-2023  code start
 	maskNumber:function(telephone)
 	{
 	if(telephone){
 			return "XXXXXX"+telephone.substring(-4,4);
 		}
 		return telephone;	
-	}
+	}//	DMND0004148 - ECP Infostream APP remove customer data from non issuing dealer shriram 2-Aug-2023  code End
 };
