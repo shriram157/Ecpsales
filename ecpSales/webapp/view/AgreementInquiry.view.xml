@@ -36,9 +36,9 @@
 												<Label text="{i18n>Email}"/>
 												<Text id="idAgreeOwnerEmail" text="{path:'LocalDataModel>/AgrOwnrSectonAddress/EmailAddress', formatter:'zecp.utils.formatter.convUpperCase'}"/>
 												<Label text="{i18n>Home}"/>
-												<Text id="idAgreeOwnerPhone" text="{LocalDataModel>/AgrOwnrSectonAddress/PhoneNumber, formatter:'zecp.utils.formatter.maskNumber}"/>
+												<Text id="idAgreeOwnerPhone" text="{path:'LocalDataModel>/AgrOwnrSectonAddress/PhoneNumber', formatter:'zecp.utils.formatter.maskNumber'}"/>
 												<Label text="{i18n>Mobile}"/>
-												<Text id="idAgreeOwnerMobile" text="{LocalDataModel>/AgrOwnrSectonAddress/MobileNumber, formatter:'zecp.utils.formatter.maskNumber}"/>
+												<Text id="idAgreeOwnerMobile" text="{path:'LocalDataModel>/AgrOwnrSectonAddress/MobileNumber', formatter:'zecp.utils.formatter.maskNumber'}"/>
 											</f:content>
 										</f:SimpleForm>
 									</html:div>
@@ -69,11 +69,11 @@
 												<Label text="{i18n>Email}"/>
 												<Text id="idVehicleOwnerEmail" text="{path:'LocalDataModel>/VechOwnrSectonAddress/EmailAddress', formatter:'zecp.utils.formatter.convUpperCase'}"/>
 												<Label text="{i18n>Home}"/>
-												<Text id="idVehicleOwnerPhone" text="{LocalDataModel>/VechOwnrSectonAddress/PhoneNumber, formatter:'zecp.utils.formatter.maskNumber }"/>
+												<Text id="idVehicleOwnerPhone" text="{path:'LocalDataModel>/VechOwnrSectonAddress/PhoneNumber', formatter:'zecp.utils.formatter.maskNumber'}"/>
 												<!--<Label text="{i18n>Business}"/>-->
 												<!--<Text text="{LocalDataModel>/VechOwnrSectonAddress/FaxNumber}"/>-->
 												<Label text="{i18n>Mobile}"/>
-												<Text id="idVehicleOwnerMobile" text="{LocalDataModel>/VechOwnrSectonAddress/Mobile, formatter:'zecp.utils.formatter.maskNumber}"/>
+												<Text id="idVehicleOwnerMobile" text="{path:'LocalDataModel>/VechOwnrSectonAddress/Mobile', formatter:'zecp.utils.formatter.maskNumber'}"/>
 											</f:content>
 										</f:SimpleForm>
 									</html:div>
