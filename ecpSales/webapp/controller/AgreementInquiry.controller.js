@@ -133,6 +133,18 @@ sap.ui.define([
 									this.getModel("LocalDataModel").setProperty("/AgrOwnrSectonAddress_BpType", this.getView().getModel("i18n").getResourceBundle()
 										.getText("Organization")); // added translation
 								}
+								
+									//	DMND0004148 - ECP Infostream APP remove customer data from non issuing dealer ---Shriram  3-Aug-2023   Code Start
+	// if (this.getModel("LocalDataModel").getProperty("/UserType") != "TCI_Admin") {
+	// 	if (this.getModel("LocalDataModel").getProperty("/LoggedInUser").substring(0, 5) != this.getModel("LocalDataModel").getProperty("/AgreementInfo/DealershipNumber").substr(-5, 5)) {
+	// 								// Agreement Owner
+	// 								this.getModel("LocalDataModel").setProperty("/AgrOwnrSectonAddress/StreetName","");
+	// 								this.getModel("LocalDataModel").setProperty("/AgrOwnrSectonAddress/CityName","");
+	// 								this.getModel("LocalDataModel").setProperty("/AgrOwnrSectonAddress/Region","");
+	// 								this.getModel("LocalDataModel").setProperty("/AgrOwnrSectonAddress/EmailAddress","");
+		
+			
+		}}	//	DMND0004148 - ECP Infostream APP remove customer data from non issuing dealer ---Shriram  3-Aug-2023   Code end
 
 							}, this),
 							error: function () {
@@ -142,6 +154,7 @@ sap.ui.define([
 
 						this.fnBusinessPartnerData(AgrOwnrSectonCno, $.proxy(function (budata) {
 							this.getModel("LocalDataModel").setProperty("/AgrOwnrSectonAddress", budata.results[0]);
+							
 							if (budata.results[0].to_EmailAddress.results.length > 0) {
 								var oEmailAdd = budata.results[0].to_EmailAddress.results;
 								var sEmail = "";
@@ -197,6 +210,23 @@ sap.ui.define([
 ///////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
 							//	}
 							}
+	//	DMND0004148 - ECP Infostream APP remove customer data from non issuing dealer ---Shriram  3-Aug-2023   Code Start
+	if (this.getModel("LocalDataModel").getProperty("/UserType") != "TCI_Admin") {
+		if (this.getModel("LocalDataModel").getProperty("/LoggedInUser").substring(0, 5) != this.getModel("LocalDataModel").getProperty("/AgreementInfo/DealershipNumber").substr(-5, 5)) {
+									// Agreement Owner
+									this.getModel("LocalDataModel").setProperty("/AgrOwnrSectonAddress/StreetName","");
+									this.getModel("LocalDataModel").setProperty("/AgrOwnrSectonAddress/CityName","");
+									this.getModel("LocalDataModel").setProperty("/AgrOwnrSectonAddress/Region","");
+									this.getModel("LocalDataModel").setProperty("/AgrOwnrSectonAddress/EmailAddress","" );
+									this.getModel("LocalDataModel").setProperty("/AgrOwnrSectonAddress/PhoneNumber","XXXXXX"+validPhone.substring(-4, 4));
+									this.getModel("LocalDataModel").setProperty("/AgrOwnrSectonAddress/MobileNumber","XXXXXX"+validMobile.substring(-4, 4));
+		}
+	}	//	DMND0004148 - ECP Infostream APP remove customer data from non issuing dealer// Code End
+							
+							
+							
+							
+							
 						}, this));
 
 					}
@@ -297,6 +327,24 @@ sap.ui.define([
 ///////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
 										
 									}
+//////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+	//	DMND0004148 - ECP Infostream APP remove customer data from non issuing dealer ---Shriram  3-Aug-2023   Code Start
+	if (this.getModel("LocalDataModel").getProperty("/UserType") != "TCI_Admin") {
+		if (this.getModel("LocalDataModel").getProperty("/LoggedInUser").substring(0, 5) != this.getModel("LocalDataModel").getProperty("/AgreementInfo/DealershipNumber").substr(-5, 5)) {
+	
+	//Vehicle Owner
+									this.getModel("LocalDataModel").setProperty("/VechOwnrSectonAddress/StreetName","");
+									this.getModel("LocalDataModel").setProperty("/VechOwnrSectonAddress/CityName","");
+									this.getModel("LocalDataModel").setProperty("/VechOwnrSectonAddress/Region","");
+									this.getModel("LocalDataModel").setProperty("/VechOwnrSectonAddress/EmailAddress","");
+									this.getModel("LocalDataModel").setProperty("/VechOwnrSectonAddress/PhoneNumber","XXXXXX"+validPhone.substring(-4, 4));
+									this.getModel("LocalDataModel").setProperty("/VechOwnrSectonAddress/Mobiler","XXXXXX"+validMobile.substring(-4, 4));
+									
+		}
+	}
+
+/////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+									
 								}, this));
 
 								oBusinessModel.read("/A_BusinessPartner", {
@@ -327,18 +375,18 @@ sap.ui.define([
 	//	DMND0004148 - ECP Infostream APP remove customer data from non issuing dealer ---Shriram  3-Aug-2023   Code Start
 	if (this.getModel("LocalDataModel").getProperty("/UserType") != "TCI_Admin") {
 		if (this.getModel("LocalDataModel").getProperty("/LoggedInUser").substring(0, 5) != this.getModel("LocalDataModel").getProperty("/AgreementInfo/DealershipNumber").substr(-5, 5)) {
-									// Agreement Owner
-									this.getModel("LocalDataModel").setProperty("/AgrOwnrSectonAddress/StreetName","");
-									this.getModel("LocalDataModel").setProperty("/AgrOwnrSectonAddress/CityName","");
-									this.getModel("LocalDataModel").setProperty("/AgrOwnrSectonAddress/Region","");
-									this.getModel("LocalDataModel").setProperty("/AgrOwnrSectonAddress/EmailAddress","");
+									// // Agreement Owner
+									// this.getModel("LocalDataModel").setProperty("/AgrOwnrSectonAddress/StreetName","");
+									// this.getModel("LocalDataModel").setProperty("/AgrOwnrSectonAddress/CityName","");
+									// this.getModel("LocalDataModel").setProperty("/AgrOwnrSectonAddress/Region","");
+									// this.getModel("LocalDataModel").setProperty("/AgrOwnrSectonAddress/EmailAddress","");
 									
 									
-									//Vehicle Owner
-									this.getModel("LocalDataModel").setProperty("/VechOwnrSectonAddress/StreetName","");
-									this.getModel("LocalDataModel").setProperty("/VechOwnrSectonAddress/CityName","");
-									this.getModel("LocalDataModel").setProperty("/VechOwnrSectonAddress/Region","");
-									this.getModel("LocalDataModel").setProperty("/VechOwnrSectonAddress/EmailAddress","");
+									// //Vehicle Owner
+									// this.getModel("LocalDataModel").setProperty("/VechOwnrSectonAddress/StreetName","");
+									// this.getModel("LocalDataModel").setProperty("/VechOwnrSectonAddress/CityName","");
+									// this.getModel("LocalDataModel").setProperty("/VechOwnrSectonAddress/Region","");
+									// this.getModel("LocalDataModel").setProperty("/VechOwnrSectonAddress/EmailAddress","");
 
 									//PrintAgreement Button disable
 									this.getModel("LocalDataModel").setProperty("/printBtnState", false);
