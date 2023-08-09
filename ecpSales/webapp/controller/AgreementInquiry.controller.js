@@ -134,17 +134,6 @@ sap.ui.define([
 										.getText("Organization")); // added translation
 								}
 
-								//	DMND0004148 - ECP Infostream APP remove customer data from non issuing dealer ---Shriram  3-Aug-2023   Code Start
-								// if (this.getModel("LocalDataModel").getProperty("/UserType") != "TCI_Admin") {
-								// 	if (this.getModel("LocalDataModel").getProperty("/LoggedInUser").substring(0, 5) != this.getModel("LocalDataModel").getProperty("/AgreementInfo/DealershipNumber").substr(-5, 5)) {
-								// 								// Agreement Owner
-								// 								this.getModel("LocalDataModel").setProperty("/AgrOwnrSectonAddress/StreetName","");
-								// 								this.getModel("LocalDataModel").setProperty("/AgrOwnrSectonAddress/CityName","");
-								// 								this.getModel("LocalDataModel").setProperty("/AgrOwnrSectonAddress/Region","");
-								// 								this.getModel("LocalDataModel").setProperty("/AgrOwnrSectonAddress/EmailAddress","");
-
-								//	}}	//	DMND0004148 - ECP Infostream APP remove customer data from non issuing dealer ---Shriram  3-Aug-2023   Code end
-
 							}, this),
 							error: function () {
 								console.log("Error");
@@ -178,13 +167,7 @@ sap.ui.define([
 									}
 								}
 								this.getModel("LocalDataModel").setProperty("/AgrOwnrSectonAddress/PhoneNumber", validPhone);
-								//	DMND0004148 - ECP Infostream APP remove customer data from non issuing dealer  shriram 2-Aug-2023
-								// if (this.getModel("LocalDataModel").getProperty("/LoggedInUser").substring(0, 5) != this.getModel("LocalDataModel").getProperty(
-								// 		"/AgreementInfo/DealershipNumber")) {
-								// 	// Agreement Owner
-								// 	this.getView().byId("idAgreeOwnerPhone").setText("");
 
-								// }
 								// Added for incident INC0184963 end
 							}
 							if (budata.results[0].to_FaxNumber.results.length > 0) {
@@ -204,10 +187,7 @@ sap.ui.define([
 								}
 								this.getModel("LocalDataModel").setProperty("/AgrOwnrSectonAddress/MobileNumber", validMobile);
 								// Added for incident INC0184963 end
-								//////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////								
 
-								///////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
-								//	}
 							}
 							//	DMND0004148 - ECP Infostream APP remove customer data from non issuing dealer ---Shriram  3-Aug-2023   Code Start
 							if (this.getModel("LocalDataModel").getProperty("/UserType") != "TCI_Admin") {
@@ -219,7 +199,7 @@ sap.ui.define([
 									this.getModel("LocalDataModel").setProperty("/AgrOwnrSectonAddress/Region", "");
 									this.getModel("LocalDataModel").setProperty("/AgrOwnrSectonAddress/EmailAddress", "");
 									this.getModel("LocalDataModel").setProperty("/AgrOwnrSectonAddress/PhoneNumber", "XXXXXX" + validPhone.substr(-4, 4));
-									this.getModel("LocalDataModel").setProperty("/AgrOwnrSectonAddress/MobileNumber", "XXXXXX" + validMobile.substr(-4,	4));
+									this.getModel("LocalDataModel").setProperty("/AgrOwnrSectonAddress/MobileNumber", "XXXXXX" + validMobile.substr(-4, 4));
 								}
 							} //	DMND0004148 - ECP Infostream APP remove customer data from non issuing dealer// Code End
 
@@ -329,9 +309,6 @@ sap.ui.define([
 										}
 										this.getModel("LocalDataModel").setProperty("/VechOwnrSectonAddress/Mobile", validMobile);
 										// Added for incident INC0184963 end
-										/////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////		
-
-										///////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
 
 									}
 									//////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
@@ -345,11 +322,12 @@ sap.ui.define([
 											this.getModel("LocalDataModel").setProperty("/VechOwnrSectonAddress/CityName", "");
 											this.getModel("LocalDataModel").setProperty("/VechOwnrSectonAddress/Region", "");
 											this.getModel("LocalDataModel").setProperty("/VechOwnrSectonAddress/EmailAddress", "");
-											this.getModel("LocalDataModel").setProperty("/VechOwnrSectonAddress/PhoneNumber", "XXXXXX" + validPhone.substr(-4, 4));
-											this.getModel("LocalDataModel").setProperty("/VechOwnrSectonAddress/Mobile", "XXXXXX" + validMobile.substr(-4,4));
+											this.getModel("LocalDataModel").setProperty("/VechOwnrSectonAddress/PhoneNumber", "XXXXXX" + validPhone.substr(-
+												4, 4));
+											this.getModel("LocalDataModel").setProperty("/VechOwnrSectonAddress/Mobile", "XXXXXX" + validMobile.substr(-4, 4));
 
 										}
-									}//	DMND0004148 - ECP Infostream APP remove customer data from non issuing dealer ---Shriram  4-Aug-2023   Code end
+									} //	DMND0004148 - ECP Infostream APP remove customer data from non issuing dealer ---Shriram  4-Aug-2023   Code end
 
 									/////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
 
@@ -379,9 +357,6 @@ sap.ui.define([
 											this.getModel("LocalDataModel").setProperty("/VechOwnrSectonAddress_Name", bpdata.results[0].OrganizationBPName1);
 											this.getModel("LocalDataModel").setProperty("/VechOwnrSectonAddress_BpType", "Organization");
 										}
-										////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
-
-										/////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
 									}, this),
 									error: function () {
 										console.log("Error");
@@ -444,10 +419,7 @@ sap.ui.define([
 						}
 					});
 
-					//////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
-
-					////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
-
+				
 				}, this),
 				error: function () {
 					console.log("Error");
