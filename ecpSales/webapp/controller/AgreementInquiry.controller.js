@@ -197,7 +197,7 @@ sap.ui.define([
 									this.getModel("LocalDataModel").setProperty("/AgrOwnrSectonAddress/StreetName", "");
 									this.getModel("LocalDataModel").setProperty("/AgrOwnrSectonAddress/CityName", "");
 									this.getModel("LocalDataModel").setProperty("/AgrOwnrSectonAddress/Region", "");
-									// this.getModel("LocalDataModel").setProperty("/AgrOwnrSectonAddress/EmailAddress", "");
+								    this.getModel("LocalDataModel").setProperty("/AgrOwnrSectonAddress/EmailAddress", "");
 									this.getModel("LocalDataModel").setProperty("/AgrOwnrSectonAddress/PhoneNumber", "XXXXXX" + validPhone.substr(-4, 4));
 									this.getModel("LocalDataModel").setProperty("/AgrOwnrSectonAddress/MobileNumber", "XXXXXX" + validMobile.substr(-4, 4));
 								}
@@ -321,9 +321,8 @@ sap.ui.define([
 											this.getModel("LocalDataModel").setProperty("/VechOwnrSectonAddress/StreetName", "");
 											this.getModel("LocalDataModel").setProperty("/VechOwnrSectonAddress/CityName", "");
 											this.getModel("LocalDataModel").setProperty("/VechOwnrSectonAddress/Region", "");
-										//	this.getModel("LocalDataModel").setProperty("/VechOwnrSectonAddress/EmailAddress", "");
-											this.getModel("LocalDataModel").setProperty("/VechOwnrSectonAddress/PhoneNumber", "XXXXXX" + validPhone.substr(-
-												4, 4));
+											this.getModel("LocalDataModel").setProperty("/VechOwnrSectonAddress/EmailAddress", "");
+											this.getModel("LocalDataModel").setProperty("/VechOwnrSectonAddress/PhoneNumber", "XXXXXX" + validPhone.substr(-4, 4));
 											this.getModel("LocalDataModel").setProperty("/VechOwnrSectonAddress/Mobile", "XXXXXX" + validMobile.substr(-4, 4));
 
 										}
