@@ -198,8 +198,14 @@ sap.ui.define([
 									this.getModel("LocalDataModel").setProperty("/AgrOwnrSectonAddress/CityName", "");
 									this.getModel("LocalDataModel").setProperty("/AgrOwnrSectonAddress/Region", "");
 								    this.getModel("LocalDataModel").setProperty("/AgrOwnrSectonAddress/EmailAddress", "");
+								    if(validPhone!= undefined)
+								    {
 									this.getModel("LocalDataModel").setProperty("/AgrOwnrSectonAddress/PhoneNumber", "XXXXXX" + validPhone.substr(-4, 4));
+								    }
+								    if(validMobile!=undefined)
+								    {
 									this.getModel("LocalDataModel").setProperty("/AgrOwnrSectonAddress/MobileNumber", "XXXXXX" + validMobile.substr(-4, 4));
+								    }
 								}
 							} //	DMND0004148 - ECP Infostream APP remove customer data from non issuing dealer// Code End
 
@@ -322,8 +328,14 @@ sap.ui.define([
 											this.getModel("LocalDataModel").setProperty("/VechOwnrSectonAddress/CityName", "");
 											this.getModel("LocalDataModel").setProperty("/VechOwnrSectonAddress/Region", "");
 											this.getModel("LocalDataModel").setProperty("/VechOwnrSectonAddress/EmailAddress", "");
+											if(validPhone!=undefined)
+											{
 											this.getModel("LocalDataModel").setProperty("/VechOwnrSectonAddress/PhoneNumber", "XXXXXX" + validPhone.substr(-4, 4));
+											}
+											if(validMobile!=undefined)
+											{
 											this.getModel("LocalDataModel").setProperty("/VechOwnrSectonAddress/Mobile", "XXXXXX" + validMobile.substr(-4, 4));
+											}
 
 										}
 									} //	DMND0004148 - ECP Infostream APP remove customer data from non issuing dealer ---Shriram  4-Aug-2023   Code end
