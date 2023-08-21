@@ -190,7 +190,7 @@ sap.ui.define([
 
 							}
 							//	DMND0004148 - ECP Infostream APP remove customer data from non issuing dealer ---Shriram  3-Aug-2023   Code Start
-							if (this.getModel("LocalDataModel").getProperty("/UserType") != "TCI_Admin") {
+							if (this.getModel("LocalDataModel").getProperty("/UserType") != "TCI_Admin" ||this.getModel("LocalDataModel").getProperty("/UserType") != "TCI_User") {
 								if (this.getModel("LocalDataModel").getProperty("/LoggedInUser").substring(0, 5) != this.getModel("LocalDataModel").getProperty(
 										"/AgreementInfo/DealershipNumber").substr(-5, 5)) {
 									// Agreement Owner
@@ -228,7 +228,7 @@ sap.ui.define([
 								this.getModel("LocalDataModel").setProperty("/printBtnState", true);
 							}
 							//	DMND0004148 - ECP Infostream APP remove customer data from non issuing dealer ---Shriram  3-Aug-2023   Code Start
-							if (this.getModel("LocalDataModel").getProperty("/UserType") != "TCI_Admin") {
+							if (this.getModel("LocalDataModel").getProperty("/UserType") != "TCI_Admin"||this.getModel("LocalDataModel").getProperty("/UserType") != "TCI_User") {
 								if (this.getModel("LocalDataModel").getProperty("/LoggedInUser").substring(0, 5) != this.getModel("LocalDataModel").getProperty(
 										"/AgreementInfo/DealershipNumber").substr(-5, 5)) {
 
@@ -319,7 +319,7 @@ sap.ui.define([
 									}
 									//////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
 									//	DMND0004148 - ECP Infostream APP remove customer data from non issuing dealer ---Shriram  4-Aug-2023   Code Start
-									if (this.getModel("LocalDataModel").getProperty("/UserType") != "TCI_Admin") {
+									if (this.getModel("LocalDataModel").getProperty("/UserType") != "TCI_Admin"||this.getModel("LocalDataModel").getProperty("/UserType") != "TCI_User") {
 										if (this.getModel("LocalDataModel").getProperty("/LoggedInUser").substring(0, 5) != this.getModel(
 												"LocalDataModel").getProperty("/AgreementInfo/DealershipNumber").substr(-5, 5)) {
 
