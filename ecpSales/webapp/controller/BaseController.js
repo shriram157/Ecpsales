@@ -145,9 +145,9 @@ sap.ui.define([
 			this.getView().setModel(oBusinessModel, "OBusinessModel");
 			this.getView().setModel(this.getOwnerComponent().getModel("EcpSalesModel"));
 			//======================================================================================================================//			
-			//  on init method,  get the token attributes and authentication details to the UI from node layer.  - begin
+			// on init method,  get the token attributes and authentication details to the UI from node layer.  - begin
 			//======================================================================================================================//		
-			//  get the Scopes to the UI 
+			// get the Scopes to the UI 
 			//this.sPrefix ="";
 			var that = this;
 			$.ajax({
