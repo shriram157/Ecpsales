@@ -243,6 +243,12 @@ sap.ui.define([
 					that.getModel("LocalDataModel").setProperty("/BpDealerModel", BpDealer);
 					// ##change done for DMND0003001 by Minakshi
 					that.getModel("LocalDataModel").setProperty("/LoggedInUser", oData.userProfile.id);
+					// var aSamlAttributes = oData.samlAttributes
+					// aSamlAttributes.forEach(function (arrayItem) {
+					// 	var x = arrayItem.prop1 + 2;
+					// 	console.log(x);
+					// });
+					that.getModel("LocalDataModel").setProperty("/dealerCode",oData.samlAttributes[0].DealerCode[0]);
 				}.bind(this),
 				error: function (response) {
 					sap.ui.core.BusyIndicator.hide();
@@ -273,23 +279,23 @@ sap.ui.define([
 		},
 		// Added for incident INC0184963 start
 		fnBusinessPartnerData: function (patnerNum, callback) {
-			var oBusinessModel = this.getModel("ApiBusinessModel");
-			oBusinessModel.read("/A_BusinessPartnerAddress", {
-				urlParameters: {
-					"$filter": "BusinessPartner eq '" + patnerNum + "' ",
-					"$expand": "to_PhoneNumber,to_FaxNumber,to_EmailAddress,to_MobilePhoneNumber"
+				var oBusinessModel = this.getModel("ApiBusinessModel");
+				oBusinessModel.read("/A_BusinessPartnerAddress", {
+					urlParameters: {
+						"$filter": "BusinessPartner eq '" + patnerNum + "' ",
+						"$expand": "to_PhoneNumber,to_FaxNumber,to_EmailAddress,to_MobilePhoneNumber"
 
-				},
-				success: $.proxy(function (budata) {
-					callback(budata);
-				}, this),
-				error: function (err) {
-					console.log(err);
-				}
-			});
+					},
+					success: $.proxy(function (budata) {
+						callback(budata);
+					}, this),
+					error: function (err) {
+						console.log(err);
+					}
+				});
 
-		}
-// Added for incident INC0184963 end
+			}
+			// Added for incident INC0184963 end
 
 	});
 });
