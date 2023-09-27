@@ -191,8 +191,13 @@ sap.ui.define([
 							}
 							//	DMND0004148 - ECP Infostream APP remove customer data from non issuing dealer ---Shriram  3-Aug-2023   Code Start
 							if (this.getModel("LocalDataModel").getProperty("/UserType") != "TCI_Admin" && this.getModel("LocalDataModel").getProperty("/UserType") != "TCI_User") {
-								if (this.getModel("LocalDataModel").getProperty("/LoggedInUser").substring(0, 5) != this.getModel("LocalDataModel").getProperty(
-										"/AgreementInfo/DealershipNumber").substr(-5, 5)) {
+								// if (this.getModel("LocalDataModel").getProperty("/LoggedInUser").substring(0, 5) != this.getModel("LocalDataModel").getProperty(
+								// 		"/AgreementInfo/DealershipNumber").substr(-5, 5))
+								if (this.getModel("LocalDataModel").getProperty("/dealerCode") != this.getModel("LocalDataModel").getProperty(
+								 		"/AgreementInfo/DealershipNumber").substr(-5, 5))
+										
+										
+										{
 									// Agreement Owner
 									this.getModel("LocalDataModel").setProperty("/AgrOwnrSectonAddress/StreetName", "");
 									this.getModel("LocalDataModel").setProperty("/AgrOwnrSectonAddress/CityName", "");
@@ -229,7 +234,7 @@ sap.ui.define([
 							}
 							//	DMND0004148 - ECP Infostream APP remove customer data from non issuing dealer ---Shriram  3-Aug-2023   Code Start
 							if (this.getModel("LocalDataModel").getProperty("/UserType") != "TCI_Admin" && this.getModel("LocalDataModel").getProperty("/UserType") != "TCI_User") {
-								if (this.getModel("LocalDataModel").getProperty("/LoggedInUser").substring(0, 5) != this.getModel("LocalDataModel").getProperty(
+								if (this.getModel("LocalDataModel").getProperty("/dealerCode") != this.getModel("LocalDataModel").getProperty(
 										"/AgreementInfo/DealershipNumber").substr(-5, 5)) {
 
 									//PrintAgreement Button disable
@@ -320,7 +325,7 @@ sap.ui.define([
 									//////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
 									//	DMND0004148 - ECP Infostream APP remove customer data from non issuing dealer ---Shriram  4-Aug-2023   Code Start
 									if (this.getModel("LocalDataModel").getProperty("/UserType") != "TCI_Admin" && this.getModel("LocalDataModel").getProperty("/UserType") != "TCI_User") {
-										if (this.getModel("LocalDataModel").getProperty("/LoggedInUser").substring(0, 5) != this.getModel(
+										if (this.getModel("LocalDataModel").getProperty("/dealerCode") != this.getModel(
 												"LocalDataModel").getProperty("/AgreementInfo/DealershipNumber").substr(-5, 5)) {
 
 											//Vehicle Owner
