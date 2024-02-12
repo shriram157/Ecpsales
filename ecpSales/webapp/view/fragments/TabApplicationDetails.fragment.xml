@@ -49,7 +49,7 @@
 						<Label text="{i18n>Province}" textAlign="Begin"/>
 						<Text text="{path:'LocalDataModel>/OwnerData/Region', formatter:'zecp.utils.formatter.convUpperCase'}"/>
 						<Label text="{i18n>PostalCode}" textAlign="Begin"/>
-						<Text text="{path:'LocalDataModel>/OwnerData/PostalCode', formatter:'zecp.utils.formatter.convUpperCase, zecp.utils.formatter.postalCode'}"/>
+						<Text text="{path:'LocalDataModel>/OwnerData/PostalCode', formatter:'zecp.utils.formatter.postalCode'}"/>
 						<Label text="{i18n>Email}" textAlign="Begin"/>
 						<Text text="{path:'LocalDataModel>/OwnerData/EmailAddress', formatter:'zecp.utils.formatter.convUpperCase'}"/>
 						<Label text="{i18n>Home}" textAlign="Begin"/>
@@ -79,7 +79,7 @@
 						<Label text="{i18n>Province}"/>
 						<Text text="{path:'LocalDataModel>/ApplicationOwnerData/Province', formatter:'zecp.utils.formatter.convUpperCase'}"/>
 						<Label text="{i18n>PostalCode}"/>
-						<Text text="{path:'LocalDataModel>/ApplicationOwnerData/PostalCode', formatter:'zecp.utils.formatter.convUpperCase,zecp.utils.formatter.postalCode'}"/>
+						<Text text="{path:'LocalDataModel>/ApplicationOwnerData/PostalCode', formatter:'zecp.utils.formatter.postalCode'}"/>
 						<Label text="{i18n>Email}"/>
 						<Text text="{path:'LocalDataModel>/ApplicationOwnerData/Email', formatter:'zecp.utils.formatter.convUpperCase'}"/>
 						<Label text="{i18n>Home}"/>

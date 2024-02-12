@@ -135,9 +135,11 @@ zecp.utils.formatter = {
 	}, //	DMND0004148 - ECP Infostream APP remove customer data from non issuing dealer shriram 2-Aug-2023  code End
 	postalCode: function (postalCode) {
 		var str = postalCode;
-		var strLower = str.toLowerCase();
-		strUpper = strLower.replace(/\s/g, '');
-		strUpperB = strUpper.toUpperCase();
+		if (str !== "" && str !== undefined) {
+			var strLower = str.toLowerCase();
+			strUpper = strLower.replace(/\s/g, '');
+			strUpperB = strUpper.toUpperCase();
+		}
 		return strUpperB;
 	}
 };
