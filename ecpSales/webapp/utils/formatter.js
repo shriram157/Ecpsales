@@ -132,16 +132,6 @@ zecp.utils.formatter = {
 			return "XXXXXX" + telephone.substring(-4, 4);
 		}
 		return telephone;
-	}, //	DMND0004148 - ECP Infostream APP remove customer data from non issuing dealer shriram 2-Aug-2023  code End
-	//changes by Swetha for INC0249775 on 12th Feb, 2024  code Start
-	postalCode: function (postalCode) {
-		var str = postalCode;
-		if (str !== "" && str !== undefined) {
-			var strLower = str.toLowerCase();
-			var strUpper = strLower.replace(/\s/g, '');
-			var strUpperB = strUpper.toUpperCase();
-		}
-		return strUpperB;
-	}
-	//changes by Swetha for INC0249775 on 12th Feb, 2024  code End
+	} //	DMND0004148 - ECP Infostream APP remove customer data from non issuing dealer shriram 2-Aug-2023  code End
+	
 };
