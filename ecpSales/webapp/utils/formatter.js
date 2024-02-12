@@ -73,66 +73,65 @@ zecp.utils.formatter = {
 		};
 		var OnewVal;
 		for (var key in oObject) {
-			if(key == val){
+			if (key == val) {
 				OnewVal = oObject[key];
 			}
 		}
 		return OnewVal;
 	},
-	appListName:function(custNameF,custNameL,custType,companyNm){
-		
-		if(custType.toUpperCase() ==="INDIVIDUAL"){
-			return custNameF+" "+custNameL;
-		}else{
+	appListName: function (custNameF, custNameL, custType, companyNm) {
+
+		if (custType.toUpperCase() === "INDIVIDUAL") {
+			return custNameF + " " + custNameL;
+		} else {
 			return companyNm;
 		}
-		
+
 		// return cutNameF+CustNameL+custType+companyNm;
 	},
-	convUpperCase : function(s){
-		var oval="";
-		if(s !== "" && s !== undefined){
+	convUpperCase: function (s) {
+		var oval = "";
+		if (s !== "" && s !== undefined) {
 			oval = s.toUpperCase();
 		}
 		return oval;
-		
+
 	},
-	enquiryPageCnclFee:function(planCode,cancleFee){
+	enquiryPageCnclFee: function (planCode, cancleFee) {
 		//UTR3A 
-			var vehCnclFeeNAPlan = ["ULR1A", "ULR2A", "ULPZY", "ULP1D", "ULP2E", "UTR1A", "UTR1B", "UTUZH", "UTUWC"];
-			//check lenth of plan code if >5 take only first 5
-			var pCode=planCode;
-			if(planCode && planCode.length>5){
-				pCode = planCode.substring(0, 5);
+		var vehCnclFeeNAPlan = ["ULR1A", "ULR2A", "ULPZY", "ULP1D", "ULP2E", "UTR1A", "UTR1B", "UTUZH", "UTUWC"];
+		//check lenth of plan code if >5 take only first 5
+		var pCode = planCode;
+		if (planCode && planCode.length > 5) {
+			pCode = planCode.substring(0, 5);
+		}
+
+		if (pCode) {
+			if (vehCnclFeeNAPlan.indexOf(pCode.toUpperCase()) > -1) {
+				return "100";
+			} else {
+				return "N/A";
+
 			}
-		
-			
-			if(pCode){
-				if (vehCnclFeeNAPlan.indexOf(pCode.toUpperCase()) > -1) {
-					return "100";
-				}else{
-					return "N/A";
-					
-				}
-			
-			}else{
-				return cancleFee;
-			}
-			
+
+		} else {
+			return cancleFee;
+		}
+
 	},
-	fnFormatDealerCode:function(dealerCode){
-		if(dealerCode){
+	fnFormatDealerCode: function (dealerCode) {
+		if (dealerCode) {
 			return dealerCode.substring(dealerCode.length - 5, dealerCode.length);
 		}
 		return dealerCode;
-		
+
 	},
 	//	DMND0004148 - ECP Infostream APP remove customer data from non issuing dealer shriram 2-Aug-2023  code start
-	maskNumber:function(telephone)
-	{
-	if(telephone){
-			return "XXXXXX"+telephone.substring(-4,4);
+	maskNumber: function (telephone) {
+		if (telephone) {
+			return "XXXXXX" + telephone.substring(-4, 4);
 		}
-		return telephone;	
-	}//	DMND0004148 - ECP Infostream APP remove customer data from non issuing dealer shriram 2-Aug-2023  code End
+		return telephone;
+	} //	DMND0004148 - ECP Infostream APP remove customer data from non issuing dealer shriram 2-Aug-2023  code End
+	
 };

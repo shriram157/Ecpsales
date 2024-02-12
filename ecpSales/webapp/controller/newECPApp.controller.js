@@ -1093,14 +1093,14 @@ sap.ui.define([
 
 								this.getModel("LocalDataModel").setProperty("/PlanValidSet", oFilteredPlan);
 								// 17-11-2022 Shriram       DMND0003842  ZECP_HIDEPLAN=X dont show relative  MGANR    Code Start
-								if(this.getModel("LocalDataModel").getProperty("/UserType") == "Dealer_Sales_User"){
+								if (this.getModel("LocalDataModel").getProperty("/UserType") == "Dealer_Sales_User") {
 									oFilteredPlan = oFilteredPlan.filter(function (p) {
-									return !(String(p.ZECP_HIDEPLAN).startsWith("X"));
-								});
-								
-								this.getModel("LocalDataModel").setProperty("/PlanValidSet", oFilteredPlan);	
+										return !(String(p.ZECP_HIDEPLAN).startsWith("X"));
+									});
+
+									this.getModel("LocalDataModel").setProperty("/PlanValidSet", oFilteredPlan);
 								}
-									// 17-11-2022 Shriram      DMND0003842 ZECP_HIDEPLAN=X dont show relative  MGANR    Code End
+								// 17-11-2022 Shriram      DMND0003842 ZECP_HIDEPLAN=X dont show relative  MGANR    Code End
 							}
 
 							var oAgrItem = this.getView().getModel("EcpFieldData").getProperty("/ZecpAgrType");
@@ -1533,7 +1533,7 @@ sap.ui.define([
 
 		},
 		OnNextStep4: function (oEvent) {
-			
+
 			var oRegYear, oSaleDate, oSaleYear, yearDef, yearInMonthDef, oSaleMonth, oRegMonth, monthDef, finalMonthDef, regDay, oSaleDay,
 				dayDif, finalDayDef, Date1, Date2, oMonthMiliSecond, TotaldayMonDif;
 			oSaleDate = this.getView().getModel("EcpFieldData").getProperty("/ZecpSaleDate");
@@ -1817,7 +1817,7 @@ sap.ui.define([
 			}
 
 			this.updateTHazBenFlag(oSelectedPlan);
-			
+
 			this.updateSurchargeValue(this.getModel("LocalDataModel").getProperty("/odometerState"));
 
 			//resetting the LienFields Validation
@@ -1909,14 +1909,8 @@ sap.ui.define([
 						console.log("Error");
 					}
 				});
-				
-				
-				
 
 			}
-			
-			
-			
 
 		},
 		onChangeAmt: function (oEvent) {
@@ -2080,10 +2074,10 @@ sap.ui.define([
 							// this.oECPData.ZecpVehSurchrgAmt = data.results[0].ZECP_VEH_SURCHRG_AMT;
 							oEcpFieldDataModel.setProperty("/ZecpListpurprice", data.results[0].ZECP_LISTPURPRICE);
 							//DMND0003027 demand changes done.
-							if(data.results[0].BENEFITSFLAG === "X"){
-							oEcpFieldDataModel.setProperty("/BENEFITSFLAG", this.getView().getModel("i18n").getResourceBundle().getText("Yes"));
-							this.getView().getModel("EcpFieldData").setProperty("/ZecpBenefitsFlg", "Yes");
-							// this.oECPData.ZecpListpurprice = data.results[0].ZECP_LISTPURPRICE;
+							if (data.results[0].BENEFITSFLAG === "X") {
+								oEcpFieldDataModel.setProperty("/BENEFITSFLAG", this.getView().getModel("i18n").getResourceBundle().getText("Yes"));
+								this.getView().getModel("EcpFieldData").setProperty("/ZecpBenefitsFlg", "Yes");
+								// this.oECPData.ZecpListpurprice = data.results[0].ZECP_LISTPURPRICE;
 							}
 						}, this),
 						error: function (err) {
@@ -2522,7 +2516,20 @@ sap.ui.define([
 				var aggreDmsData = localDataModel.ApplicationOwnerData;
 				var vechicalAgreementOwnerDetail = localDataModel.AgreementOwnerName;
 				var vechicalOwnerDetail = localDataModel.OwnerData;
-
+				//changes by Swetha for INC0249775 on 12th Feb, 2024 Start
+				var aggreDmsDataPostalCode = aggreDmsData.PostalCode.toUpperCase();
+				var vechicalOwnerDetailPostalCode = vechicalOwnerDetail.PostalCode.toUpperCase();
+				if (aggreDmsDataPostalCode !== "" && aggreDmsDataPostalCode !== undefined) {
+					var strLowerB = aggreDmsDataPostalCode.toLowerCase();
+					var strUpperB = strLowerB.replace(/\s/g, '');
+					var aggreDmsDataPC = strUpperB.toUpperCase();
+				}
+				if (vechicalOwnerDetailPostalCode !== "" && vechicalOwnerDetailPostalCode !== undefined) {
+					var strLowerC = vechicalOwnerDetailPostalCode.toLowerCase();
+					var strUpperC = strLowerC.replace(/\s/g, '');
+					var vechicalOwnerDetailPC = strUpperC.toUpperCase();
+				}
+				//changes by Swetha for INC0249775 on 12th Feb, 2024 End
 				if (aggreDmsData.CustomerName.toUpperCase().trim() !== vechicalAgreementOwnerDetail.FirstName.toUpperCase().trim()) {
 					return false;
 				}
@@ -2531,7 +2538,7 @@ sap.ui.define([
 					return false;
 				}
 
-				if (aggreDmsData.PostalCode.toUpperCase() !== vechicalOwnerDetail.PostalCode.toUpperCase()) {
+				if (aggreDmsDataPC.toUpperCase() !== vechicalOwnerDetailPC.toUpperCase()) {          //changes by Swetha for INC0249775 on 12th Feb, 2024
 					return false;
 				}
 
