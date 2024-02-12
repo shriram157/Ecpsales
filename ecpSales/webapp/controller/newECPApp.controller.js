@@ -2517,18 +2517,8 @@ sap.ui.define([
 				var vechicalAgreementOwnerDetail = localDataModel.AgreementOwnerName;
 				var vechicalOwnerDetail = localDataModel.OwnerData;
 				//changes by Swetha for INC0249775 on 12th Feb, 2024 Start
-				var aggreDmsDataPostalCode = aggreDmsData.PostalCode.toUpperCase();
-				var vechicalOwnerDetailPostalCode = vechicalOwnerDetail.PostalCode.toUpperCase();
-				if (aggreDmsDataPostalCode !== "" && aggreDmsDataPostalCode !== undefined) {
-					var strLowerB = aggreDmsDataPostalCode.toLowerCase();
-					var strUpperB = strLowerB.replace(/\s/g, '');
-					var aggreDmsDataPC = strUpperB.toUpperCase();
-				}
-				if (vechicalOwnerDetailPostalCode !== "" && vechicalOwnerDetailPostalCode !== undefined) {
-					var strLowerC = vechicalOwnerDetailPostalCode.toLowerCase();
-					var strUpperC = strLowerC.replace(/\s/g, '');
-					var vechicalOwnerDetailPC = strUpperC.toUpperCase();
-				}
+				var aggreDmsDataPostalCode = aggreDmsData.PostalCode.replace(/\s/g,'').toUpperCase();
+				var vechicalOwnerDetailPostalCode = vechicalOwnerDetail.PostalCode.replace(/\s/g,'').toUpperCase();
 				//changes by Swetha for INC0249775 on 12th Feb, 2024 End
 				if (aggreDmsData.CustomerName.toUpperCase().trim() !== vechicalAgreementOwnerDetail.FirstName.toUpperCase().trim()) {
 					return false;
@@ -2538,7 +2528,7 @@ sap.ui.define([
 					return false;
 				}
 
-				if (aggreDmsDataPC.toUpperCase() !== vechicalOwnerDetailPC.toUpperCase()) {          //changes by Swetha for INC0249775 on 12th Feb, 2024
+				if (aggreDmsDataPostalCode !== vechicalOwnerDetailPostalCode) {          //changes by Swetha for INC0249775 on 12th Feb, 2024
 					return false;
 				}
 
